@@ -21,6 +21,9 @@ with open(budget_csv, newline = "") as csvfile:
     for i in range(len(net_total)-1):
         change.append(net_total[i+1]-net_total[i])
 
+
+import sys
+sys.stdout = open("PyBank/Analysis/Result.txt", "w")
 print("FINANCIAL ANAYLSIS")
 print("------------------------------------------------")
 print(f"Total Months: {len(total_months)}")
@@ -33,3 +36,6 @@ greatestincrease = max(change)
 greatestdecrease = min(change)
 print(f"Greatest Increase in Profits: (${greatestincrease})")
 print(f"Greatest Decrease in Profits: (${greatestdecrease})")
+
+sys.stdout.close()
+
